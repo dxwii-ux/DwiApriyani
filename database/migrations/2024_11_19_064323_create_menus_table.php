@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->tinyIncrements('id_menu');
+            $table->string('id_menu',10)->primary();
             $table->string('nama_menu')->nullable();
             $table->integer('harga');
             $table->timestamps();

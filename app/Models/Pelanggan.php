@@ -9,6 +9,9 @@ class Pelanggan extends Model
 {
     /** @use HasFactory<\Database\Factories\PelangganFactory> */
     use HasFactory;
-    protected $table ='id_pelanggan';
+    protected $table ='pelanggans';
+    protected $primaryKey ='id_pelanggan';
     protected $gurded =[];
+    protected $increments = false;
+    protected $keyType = "string";
 }

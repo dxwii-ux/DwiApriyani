@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PenggunaController extends Controller
+class AdminController extends Controller
 {
+    public function index(){
+        return view('dashboard');
+    }
     public function login(){
         return view('login');
     }
@@ -16,11 +19,14 @@ class PenggunaController extends Controller
             'password'=>'required'
         ]);
         
-        $data_user = $request->only(['username','password']);
-
+        $data_user = $request->only(["username","password"]);
         if(auth()->guard('admin')->attempt($data_user)){
             return redirect('/');
         }
         return redirect()->back();
+    }
+    public function Logout(Request $request){
+        auth()->guard("admin")->logout();
+        return redirect('/login');
     }
 }
