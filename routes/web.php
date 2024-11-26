@@ -27,7 +27,7 @@ Route::middleware('auth:admin')->group(function(){
     Route::get('/pelanggan',[PelangganController::class,'index']);
     Route::post('/pelanggan',[PelangganController::class,'simpan']);
     Route::get('/pelanggan/edit/{id}',[PelangganController::class,'edit']);
-    Route::get('/pelanggan/update/{id}',[PelangganController::class,'update']);
+    Route::post('/pelanggan/update/{id}',[PelangganController::class,'update']);
 });
 
 Route::get('/meja',function(){
