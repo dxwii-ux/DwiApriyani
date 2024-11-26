@@ -1,9 +1,11 @@
 :root{
     --sidebar-width : 250px;
+    background-color: #89A8B2;
 }
 
 #sidebar{
     width: var(--sidebar-width);
+    
 
     /* logo */
     div.logo{

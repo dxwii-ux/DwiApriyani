@@ -13,16 +13,12 @@ class MenuController extends Controller
     public function index(){
         $menu = new Menu();
 
-        //data seluruh pelanggan
         $data_menu = $menu->paginate(10);
 
         $id_menu = $menu->all()->last();
-        // ambil nilai id_menu dari baris tersebut
         $id =$id_menu->id_menu;
-        // tambah 1 ke nilai id_pelanggan
         $no = substr($id,2);
         $no = intval($no)+1;
-        // tambahkan prefix "M-"
         switch(true){
             case $no < 10:
                 $no ="M-00".$no;
@@ -66,5 +62,22 @@ class MenuController extends Controller
             'menu'=>$data_menu,
             'edit'=>$edit_menu
         ]);
+    }
+    public function update(Request $request, $id){
+        $request->validate([
+            'nama_menu'=>'required',
+            'harga'=>'required'
+        ]);
+
+        $menu = new Menu();
+        $menu->find($id)->update($request->all());
+        return redirect('/menu');
+    }
+    public function delete($id){
+        
+
+        $menu = new Menu();
+        $menu->find($id)->delete();
+        return redirect('/menu');
     }
 }
