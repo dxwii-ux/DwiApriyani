@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->integer('id_user');
             $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggans')->onDelete('cascade');
-            $table->foreign('id_user')->references('id_user')->on('penggunas')->onDelete('cascade');
+            $table->foreign('id_user')->references('id_user')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class PelangganController extends Controller
 {
-    public function pelanggan(){
-        return view('pelanggan');
-    }
     public function index(){
         $pelanggan = new Pelanggan();
 
@@ -40,15 +37,16 @@ class PelangganController extends Controller
 
     public function simpan(Request $request){
         $request->validate([
-            'nama_menu'=>'required',
-            'alamat'=>'required',
-            'harga'=>'required'
+            'nama_pelanggan'=>'required',
+            'jenis_kelamin'=>'required',
+            'telepon'=>'required',
+            'alamat'=>'required'
         ]);
 
 
         $pelanggan = new Pelanggan();
         if($pelanggan->create($request->all())){
-            return redirect('/menu')->with('pesan','Data Berhasil ditambahkan');
+            return redirect('/pelanggan')->with('pesan','Data Berhasil ditambahkan');
         }
         return back()->with('pesan','Data gagal ditambahkan');
     }
@@ -66,17 +64,17 @@ class PelangganController extends Controller
     }
     public function update(Request $request, $id){
         $request->validate([
-            'nama_menu'=>'required',
-            'harga'=>'required'
+            'nama_pelanggan'=>'required',
+            'jenis_kelamin'=>'required',
+            'telepon'=>'required',
+            'alamat'=>'required'
         ]);
 
         $pelanggan = new Pelanggan();
         $pelanggan->find($id)->update($request->all());
         return redirect('/pelanggan');
     }
-    public function delete($id){
-        
-
+    public function hapus($id){
         $pelanggan = new Pelanggan();
         $pelanggan->find($id)->delete();
         return redirect('/pelanggan');

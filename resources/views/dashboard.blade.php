@@ -63,25 +63,33 @@
                             <thead>
                                 <tr>
                                     <th>Kode</th>
-                                    <th>Nama Barang</th>
-                                    <th>Terjual</th>
+                                    <th>Nama Menu</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>B-002</td>
-                                    <td>Ram 16 Gb DDR4</td>
-                                    <td>100</td>
+                                    <td>M-001</td>
+                                    <td>Ayam Bakar</td>
                                 </tr>
                                 <tr>
-                                    <td>B-002</td>
-                                    <td>Ram 16 Gb DDR4</td>
-                                    <td>100</td>
+                                    <td>M-002</td>
+                                    <td>Ikan Bakar</td>
                                 </tr>
                                 <tr>
-                                    <td>B-002</td>
-                                    <td>Ram 16 Gb DDR4</td>
-                                    <td>100</td>
+                                    <td>M-003</td>
+                                    <td>Iga Bakar</td>
+                                </tr>
+                                <tr>
+                                    <td>M-004</td>
+                                    <td>Sate Ayam</td>
+                                </tr>
+                                <tr>
+                                    <td>M-005</td>
+                                    <td>Sate Sapi</td>
+                                </tr>
+                                <tr>
+                                    <td>M-006</td>
+                                    <td>Sate Maranggi</td>
                                 </tr>
                             </tbody>
                         </table>

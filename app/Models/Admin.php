@@ -11,7 +11,7 @@ class Admin extends User
 {
     /** @use HasFactory<\Database\Factories\PenggunaFactory> */
     use HasFactory, Notifiable;
-    protected $table ='admins';
+    protected $table ='user_barus';
     protected $primaryKey ='id_user';
     protected $guarded =[];
     protected $increments = false;

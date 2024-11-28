@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('id_pelanggan',10)->primary();
             $table->string('nama_pelanggan',100)->nullable();
             $table->enum('jenis_kelamin',['Perempuan','Laki-laki']);
-            $table->string('telelpon',13);
+            $table->string('telepon',13);
             $table->string('alamat',100);
             $table->timestamps();
         });

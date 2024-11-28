@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_barus', function (Blueprint $table) {
-            $table->integerIncrements('id_user');
-            $table->string('nama')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
-            $table->enum('role',['admin','kasir','owner','waiter']);
+        Schema::create('mejas', function (Blueprint $table) {
+            $table->string('no_meja')->primary();
+            $table->integer('kapasitas')->nullable();
+            $table->enum('status',['diisi','kosong'])->default('kosong');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_barus');
+        Schema::dropIfExists('mejas');
     }
 };

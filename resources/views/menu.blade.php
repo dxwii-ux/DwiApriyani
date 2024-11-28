@@ -42,7 +42,7 @@
                         <th>ID Menu</th>
                         <th>Nama Menu</th>
                         <th>Harga</th>
-                        <th>Action</th>
+                        <th>Kelola</th>
                     </tr>
                     @foreach ($menu as $item)
                     <tr class="align-middle">

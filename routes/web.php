@@ -15,6 +15,9 @@ Route::middleware('auth:admin')->group(function(){
 
     // route data meja
     Route::get('meja',action: [MejaController::class,'meja']);
+    Route::get('/meja/edit/{no}',[MejaController::class,'edit']);
+    Route::post('/meja/edit/{no}',[MejaController::class,'update']);
+    Route::get('/meja/delete/{no}',[MejaController::class,'delete']);
 
     // route menu
     Route::get('/menu',[MenuController::class,'index']);
@@ -27,9 +30,6 @@ Route::middleware('auth:admin')->group(function(){
     Route::get('/pelanggan',[PelangganController::class,'index']);
     Route::post('/pelanggan',[PelangganController::class,'simpan']);
     Route::get('/pelanggan/edit/{id}',[PelangganController::class,'edit']);
-    Route::post('/pelanggan/update/{id}',[PelangganController::class,'update']);
-});
-
-Route::get('/meja',function(){
-    return view('meja');
+    Route::post('/pelanggan/edit/{id}',[PelangganController::class,'update']);
+    Route::get('/pelanggan/hapus/{id}',[PelangganController::class,'hapus']);
 });

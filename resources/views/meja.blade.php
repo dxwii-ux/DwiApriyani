@@ -4,7 +4,7 @@
 <div id="konten-utama">
     <div class="container-fluid">
         <div class="header d-flex w-100 py-3">
-            <h5 class="h4 fw-bold text-black-50 text-uppercase">Data Meja</h5>
+            <h5 class="h4 fw-bold text-black-50 text-uppercase">Meja</h5>
         </div><!-- Akhir header -->
 
         <!-- Flexibel Konten -->
@@ -13,24 +13,19 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-6 col-12 mb-2">
-                        <label for="id_pelanggan" class="form-label text-black-50">ID Pelanggan</label>
-                        <input type="text" name="id_pelanggan" id="id_pelanggan" class="form-control bg-body-tertiary"
-                            placeholder="Masukkan  ID Pelanggan" readonly value="">
+                        <label for="no_meja" class="form-label text-black-50">Nomor Meja</label>
+                        <input type="text" name="no_meja" id="no_meja" class="form-control"
+                            placeholder="Masukkan Nama Meja" value="{{$edit->no_meja??""}}">
                     </div>
                     <div class="col-md-6 col-12 mb-2">
-                        <label for="nama_pelanggan" class="form-label text-black-50">Nama Pelanggan</label>
-                        <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control"
-                            placeholder="Masukkan Nama Pelanggan" value="">
+                        <label for="kapasitas" class="form-label text-black-50">Kapasitas</label>
+                        <input type="text" name="kapasitas" id="kapasitas" class="form-control"
+                            placeholder="Masukkan Kapasitas" value="{{$edit->kapasitas??""}}">
                     </div>
                     <div class="col-md-6 col-12 mb-2">
-                        <label for="alamat" class="form-label text-black-50">Alamat</label>
-                        <input type="text" name="alamat" id="alamat" class="form-control"
-                            placeholder="Masukkan alamat" value="">
-                    </div>
-                    <div class="col-md-6 col-12 mb-2">
-                        <label for="telepon" class="form-label text-black-50">Telepon</label>
-                        <input type="text" name="telepon" id="telepon" class="form-control"
-                            placeholder="Masukkan telepon" value="">
+                        <label for="kapasitas" class="form-label text-black-50">Status</label>
+                        <input type="text" name="kapasitas" id="kapasitas" class="form-control"
+                            placeholder="Masukkan Kapasitas" value="{{$edit->status??""}}">
                     </div>
                     <div class="d-flex justify-content-end gap-2">
                         <a href="#" class="btn btn-sm btn-danger bg-gradient px-5">Hapus <i class="bi-trash"></i></a>
@@ -44,12 +39,21 @@
             <table class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>ID Pelanggan</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Alamat</th>
-                        <th>Telepon</th>
-                        <th>#</th>
+                        <th>Nomor Meja</th>
+                        <th>Kapasitas</th>
+                        <th>Status</th>
+                        <th>Kelola</th>
                     </tr>
+                    @foreach ($meja as $item)
+                    <tr class="align-middle">
+                        <td>{{$item->no_meja}}</td>
+                        <td>{{$item->kapasitas}}</td>
+                        <td>{{$item->status}}</td>
+                        <td>
+                            <a href="/meja/edit/{{$item->no_meja}}" class="btn btn-sm btn-success"><i class="bi-pencil small"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </thead>
                 
             </table>

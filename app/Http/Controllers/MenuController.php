@@ -74,8 +74,6 @@ class MenuController extends Controller
         return redirect('/menu');
     }
     public function delete($id){
-        
-
         $menu = new Menu();
         $menu->find($id)->delete();
         return redirect('/menu');
