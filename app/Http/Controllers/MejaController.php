@@ -11,11 +11,11 @@ class MejaController extends Controller
         return view('meja');
     }
     public function index(){
-        $meja = new Meja();
+        $mejaa = new Meja();
 
-        $data_meja = $meja->paginate(10);
+        $data_meja = $mejaa->paginate(10);
 
-        $no_meja = $meja->all()->last();
+        $no_meja = $mejaa->all()->last();
         $no =$no_meja->id_meja;
         $no = substr($no,2);
         $no = intval($no)+1;
@@ -46,8 +46,8 @@ class MejaController extends Controller
         ]);
 
 
-        $meja = new Meja();
-        if($meja->create($request->all())){
+        $mejaa = new Meja();
+        if($mejaa->create($request->all())){
             return redirect('/meja')->with('pesan','Data Berhasil ditambahkan');
         }
         return back()->with('pesan','Data gagal ditambahkan');
@@ -55,10 +55,10 @@ class MejaController extends Controller
 
     public function edit($no){
 
-        $meja = new Meja();
-        $edit_meja = $meja->find($no);
+        $mejaa = new Meja();
+        $edit_meja = $mejaa->find($no);
 
-        $data_meja = $meja->paginate(10);
+        $data_meja = $mejaa->paginate(10);
         return view('meja',[
             'meja'=>$data_meja,
             'edit'=>$edit_meja
@@ -70,13 +70,13 @@ class MejaController extends Controller
             'status'=>'required'
         ]);
 
-        $meja = new Meja();
-        $meja->find($no)->update($request->all());
+        $mejaa = new Meja();
+        $mejaa->find($no)->update($request->all());
         return redirect('/meja');
     }
     public function delete($no){
-        $meja = new Meja();
-        $meja->find($no)->delete();
+        $mejaa = new Meja();
+        $mejaa->find($no)->delete();
         return redirect('/meja');
     }
 }

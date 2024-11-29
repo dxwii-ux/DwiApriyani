@@ -4,7 +4,7 @@
 <div id="konten-utama">
     <div class="container-fluid">
         <div class="header d-flex w-100 py-3">
-            <h5 class="h4 fw-bold text-black-50 text-uppercase">Data Meja</h5>
+            <h5 class="h4 fw-bold text-black-50 text-uppercase">Data Pelanggan</h5>
         </div><!-- Akhir header -->
 
         <!-- Flexibel Konten -->

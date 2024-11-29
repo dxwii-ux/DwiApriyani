@@ -44,7 +44,7 @@
                         <th>Status</th>
                         <th>Kelola</th>
                     </tr>
-                    @foreach ($meja as $item)
+                    @foreach ($mejaa as $item)
                     <tr class="align-middle">
                         <td>{{$item->no_meja}}</td>
                         <td>{{$item->kapasitas}}</td>
