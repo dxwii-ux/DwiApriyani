@@ -9,56 +9,65 @@
     <link rel="stylesheet" href="/css/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class=" bg-body-tertiary"  >
-    <div id="main" class="d-flex" >
+
+<body class="bg-body-tertiary">
+    <div id="main" class="d-flex">
         <!-- Sidebar -->
+        @if(auth()->guard('admin')->user()->role === 'admin' || auth()->guard('admin')->user()->role === 'waiter' || auth()->guard('admin')->user()->role === 'kasir')
         <div id="sidebar" class="d-flex flex-column vh-100" style="background-color: #93C6E7">
-            <div class="text-center fw-bold mb-2 justify-content-between align-items-center px-4 text-black-50">
+            <div class="text-center fw-bold mb-2 px-4 text-black-50">
                 <span class="fs-4">Resto</span>
-              </div>
+            </div>
             <hr>
             <div class="menu p-2 d-flex flex-column gap-2">
-                <a href="/dashboard"
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50 active ">
-                    <span class="">Dashboard</span>
+                <a href="{{ route('dashboardAdmin') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50 active">
+                    <span>Dashboard</span>
                 </a>
-                <a href="/meja"
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
-                    <span class="">Meja</span>
+                @if(auth()->guard('admin')->user()->role === 'admin')
+                <a href="{{ route('meja') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
+                    <span>Meja</span>
                 </a>
-                <a href="/menu"
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
-                    <span class="">Menu</span>
+                @endif
+                @if(auth()->guard('admin')->user()->role === 'admin' || auth()->guard('admin')->user()->role === 'waiter')
+                <a href="{{ route('menu') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
+                    <span>Menu</span>
                 </a>
-                <a href="/pelanggan"
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
-                    <span class="">Pelanggan</span>
+                @endif
+                @if(auth()->guard('admin')->user()->role === 'waiter')
+                <a href="{{ route('order') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
+                    <span>Order</span>
                 </a>
-                <a href=""
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
-                    <span class="">Order</span>
+                @endif
+                @if(auth()->guard('admin')->user()->role === 'kasir')
+                <a href="{{ route('transaksi') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
+                    <span>Transaksi</span>
                 </a>
-                <a href=""
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
-                    <span class="">Transaksi</span>
+                @endif
+                @if(auth()->guard('admin')->user()->role === 'owner' || auth()->guard('admin')->user()->role === 'waiter' || auth()->guard('admin')->user()->role === 'kasir')
+                <a href="{{ route('laporan') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
+                    <span>Laporan</span>
                 </a>
-                <a href="#"
-                    class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
-                    <span class="">Laporan</span>
+                @endif
+                @if(auth()->guard('admin')->user()->role === 'waiter' || auth()->guard('admin')->user()->role === 'kasir' || auth()->guard('admin')->user()->role === 'admin')
+                <a href="{{ route('pelanggan') }}" class="btn btn-light w-100 d-flex justify-content-between align-items-center px-4 text-black-50">
+                    <span>Pelanggan</span>
                 </a>
+                @endif
             </div>
             <div class="logout p-2 mt-auto">
-                <a href="logout" class="btn btn-danger w-100 d-flex px-3 justify-content-between align-content-center">
+                <a href="{{ route('logout') }}" class="btn btn-danger w-100 d-flex px-3 justify-content-between align-content-center">
                     <span>Logout</span>
                     <i class="bi-arrow-right-circle"></i>
                 </a>
             </div>
-            
         </div>
+        @endif
         <!-- Akhir Sidebar -->
+
         <!-- Konten Utama -->
         @yield('konten')
         <!-- Akhir Konten Utama -->
     </div>
 </body>
+
 </html>

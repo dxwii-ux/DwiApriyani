@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class MejaController extends Controller
 {
     public function meja(){
-        return view('meja');
+        $meja = Meja::all();
+        return view('meja',[
+            'mejaa' => $meja
+        ]);
     }
     public function index(){
         $mejaa = new Meja();
@@ -16,18 +19,18 @@ class MejaController extends Controller
         $data_meja = $mejaa->paginate(10);
 
         $no_meja = $mejaa->all()->last();
-        $no =$no_meja->id_meja;
+        $no =$no_meja->no_meja;
         $no = substr($no,2);
         $no = intval($no)+1;
         switch(true){
             case $no < 10:
-                $no ="MJ-00".$no;
+                $no ="M-00".$no;
                 break;
             case $no < 100:
-                $no ="MJ-0".$no;
+                $no ="M-0".$no;
                 break;
             default:
-                $no ="MJ-".$no;
+                $no ="M-".$no;
                 break;
         }
 
@@ -72,11 +75,11 @@ class MejaController extends Controller
 
         $mejaa = new Meja();
         $mejaa->find($no)->update($request->all());
-        return redirect('/meja');
+        return redirect('meja');
     }
     public function delete($no){
         $mejaa = new Meja();
         $mejaa->find($no)->delete();
-        return redirect('/meja');
+        return redirect('meja');
     }
 }
