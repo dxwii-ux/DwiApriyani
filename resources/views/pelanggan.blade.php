@@ -29,8 +29,8 @@
                         <select
                             class="w-full bg-gray-700 text-gray-100 border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200"
                             id="jenis_Kelamin" name="jenis_Kelamin" required>
-                            <option value="laki-laki" {{ isset($edit) && $edit->jenis_Kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                            <option value="perempuan" {{ isset($edit) && $edit->jenis_Kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                            <option value="Laki-laki" {{ isset($edit) && $edit->jenis_Kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                            <option value="Perempuan" {{ isset($edit) && $edit->jenis_Kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                         </select>
                     </div>
                     <div class="col-md-6 col-12 mb-2">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="d-flex justify-content-end gap-2">
                         <a href="/pelanggan/hapus/{{$edit->id_pelanggan??''}}" class="btn btn-sm btn-danger bg-gradient px-5">Hapus <i class="bi-trash"></i></a>
-                        <button class="btn btn-sm btn-success bg-gradient px-5">Batal <i class="bi-x"></i></button>
+                        <a href='/pelanggan' class="btn btn-sm btn-success bg-gradient px-5">Batal <i class="bi-x"></i></a>
                         <button class="btn btn-sm btn-primary bg-gradient px-5">Simpan <i class="bi-save2"></i></button>
                     </div>
                 </div>

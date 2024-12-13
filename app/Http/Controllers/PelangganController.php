@@ -13,7 +13,10 @@ class PelangganController extends Controller
         $data_pelanggan = $pelanggan->paginate(10);
 
         $id_pelanggan = $pelanggan->all()->last();
-        $id =$id_pelanggan->id_pelanggan;
+        if($id_pelanggan == null){
+            $id_pelanggan = 'P-000';
+        }
+        $id = $id_pelanggan->id_pelanggan;
         $no = substr($id,2);
         $no = intval($no)+1;
         switch(true){
@@ -40,7 +43,7 @@ class PelangganController extends Controller
     $request->validate([
         'id_pelanggan' => 'required',
         'nama_pelanggan' => 'required|string|max:255',
-        'jenis_Kelamin' => 'required|in:laki-laki,perempuan',
+        'jenis_Kelamin' => 'required|in:Laki-laki,Perempuan',
         'telepon' => 'required|string|max:15',
         'alamat' => 'required|string|max:255',
     ]);
