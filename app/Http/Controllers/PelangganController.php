@@ -35,21 +35,27 @@ class PelangganController extends Controller
         ]);
     }
 
-    public function simpan(Request $request){
-        $request->validate([
-            'nama_pelanggan'=>'required',
-            'jenis_kelamin'=>'required',
-            'telepon'=>'required',
-            'alamat'=>'required'
-        ]);
+    public function simpan(Request $request)
+{
+    $request->validate([
+        'id_pelanggan' => 'required',
+        'nama_pelanggan' => 'required|string|max:255',
+        'jenis_Kelamin' => 'required|in:laki-laki,perempuan',
+        'telepon' => 'required|string|max:15',
+        'alamat' => 'required|string|max:255',
+    ]);
 
+    $pelanggan = new Pelanggan();
+    $pelanggan->id_pelanggan = $request->id_pelanggan;
+    $pelanggan->nama_pelanggan = $request->nama_pelanggan;
+    $pelanggan->jenis_kelamin = $request->jenis_Kelamin; // Pastikan field sesuai dengan tabel
+    $pelanggan->telepon = $request->telepon;
+    $pelanggan->alamat = $request->alamat;
+    $pelanggan->save();
 
-        $pelanggan = new Pelanggan();
-        if($pelanggan->create($request->all())){
-            return redirect('/pelanggan')->with('pesan','Data Berhasil ditambahkan');
-        }
-        return back()->with('pesan','Data gagal ditambahkan');
-    }
+    return redirect()->route('pelanggan')->with('success', 'Data pelanggan berhasil disimpan!');
+}
+
 
     public function edit($id){
 

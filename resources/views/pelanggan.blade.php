@@ -22,10 +22,16 @@
                         <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control"
                             placeholder="Masukkan Nama Pelanggan" value="{{$edit->nama_pelanggan??""}}">
                     </div>
-                    <div class="col-md-6 col-12 mb-2">
-                        <label for="jenis_kelamin" class="form-label text-black-50">Jenis Kelamin</label>
-                        <input type="text" name="jenis_kelamin" id="jenis_kelamin" class="form-control"
-                            placeholder="Masukkan Jenis Kelamin" value="{{$edit->jenis_kelamin??""}}">
+                    <div>
+                        <label class="block text-gray-300 text-sm font-semibold mb-2" for="jenis_Kelamin">
+                            Jenis Kelamin
+                        </label>
+                        <select
+                            class="w-full bg-gray-700 text-gray-100 border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200"
+                            id="jenis_Kelamin" name="jenis_Kelamin" required>
+                            <option value="laki-laki" {{ isset($edit) && $edit->jenis_Kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                            <option value="perempuan" {{ isset($edit) && $edit->jenis_Kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                        </select>
                     </div>
                     <div class="col-md-6 col-12 mb-2">
                         <label for="telepon" class="form-label text-black-50">Telepon</label>

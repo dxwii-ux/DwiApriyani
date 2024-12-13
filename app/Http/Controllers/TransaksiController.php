@@ -11,14 +11,15 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
     public function index()
-    {
-        $transaksis = Transaksi::with(['order', 'pelanggan', 'user'])->paginate(10);
-        $orders = Pesanan::all();
-        $pelanggans = Pelanggan::all();
-        $users = Admin::where('role', 'kasir')->get();
+{
+    $transaksi = Transaksi::with(['order', 'pelanggan', 'user'])->paginate(10);
+    $orders = Pesanan::all();
+    $pelanggans = Pelanggan::all();
+    $users = Admin::where('role', 'kasir')->get();
 
-        return view('transaksi', compact('transaksis', 'orders', 'pelanggans', 'users'));
-    }
+    return view('transaksi', compact('transaksi', 'orders', 'pelanggans', 'users'));
+}
+
 
     public function simpan(Request $request)
     {
@@ -33,10 +34,16 @@ class TransaksiController extends Controller
         return redirect()->route('transaksi')->with('success', 'Transaksi berhasil disimpan!');
     }
     public function hapus($id)
-    {
-        $transaksi = Transaksi::findOrFail($id);
-        $transaksi->delete();
+{
+    $transaksi = Transaksi::find($id);
 
-        return redirect()->route('transaksi')->with('success', 'Transaksi berhasil dihapus!');
+    if (!$transaksi) {
+        return redirect()->route('transaksi')->with('error', 'Transaksi tidak ditemukan!');
     }
+
+    $transaksi->delete();
+
+    return redirect()->route('transaksi')->with('success', 'Transaksi berhasil dihapus!');
+}
+
 }

@@ -9,7 +9,7 @@
 
         <!-- Flexibel Konten -->
         <div class="card card-body bg-white border-0 shadow">
-            <form action="{{ route('order.simpan') }}" method="post">
+            <form action="{{ route('order') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 col-12 mb-2">

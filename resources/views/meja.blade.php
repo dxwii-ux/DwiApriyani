@@ -25,7 +25,7 @@
                     <div class="col-md-6 col-12 mb-2">
                         <label for="kapasitas" class="form-label text-black-50">Status</label>
                         <input type="text" name="kapasitas" id="kapasitas" class="form-control"
-                            placeholder="Masukkan Kapasitas" value="{{$edit->status??""}}">
+                            placeholder="Masukkan Status" value="{{$edit->status??""}}">
                     </div>
                     <div class="d-flex justify-content-end gap-2">
                         <a href="#" class="btn btn-sm btn-danger bg-gradient px-5">Hapus <i class="bi-trash"></i></a>
