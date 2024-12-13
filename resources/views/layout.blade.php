@@ -13,7 +13,7 @@
 <body class="bg-body-tertiary">
     <div id="main" class="d-flex">
         <!-- Sidebar -->
-        @if(auth()->guard('admin')->user()->role === 'admin' || auth()->guard('admin')->user()->role === 'waiter' || auth()->guard('admin')->user()->role === 'kasir')
+        @if(auth()->guard('admin')->user()->role === 'admin' || auth()->guard('admin')->user()->role === 'waiter' || auth()->guard('admin')->user()->role === 'kasir' || auth()->guard('admin')->user()->role === 'owner')
         <div id="sidebar" class="d-flex flex-column vh-100" style="background-color: #93C6E7">
             <div class="text-center fw-bold mb-2 px-4 text-black-50">
                 <span class="fs-4">Resto</span>
